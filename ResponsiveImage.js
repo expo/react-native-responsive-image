@@ -20,7 +20,7 @@ class ResponsiveImage extends React.Component {
       source = optimalSource;
     }
     if (!source) {
-      throw new Error(`Couldn't find an appopriate image source`);
+      throw new Error(`Couldn't find an appropriate image source`);
     }
 
     return <Image {...this.props} ref="image" source={source} />;
@@ -28,12 +28,14 @@ class ResponsiveImage extends React.Component {
 
   _getClosestHighQualitySource() {
     let { sources } = this.props;
-    let pixelRatios = Object.keys(sources).map(parseFloat);
+    let pixelRatios = Object.keys(sources);
     if (!pixelRatios.length) {
       return null;
     }
 
-    pixelRatios.sort((ratioA, ratioB) => ratioA - ratioB);
+    pixelRatios.sort((ratioA, ratioB) =>
+      parseFloat(ratioA) - parseFloat(ratioB)
+    );
     for (let ii = 0; ii < pixelRatios.length; ii++) {
       if (pixelRatios[ii] >= PixelRatio.get()) {
         return sources[pixelRatios[ii]];
