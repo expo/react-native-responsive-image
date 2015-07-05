@@ -21,7 +21,7 @@ ResponsiveImage accepts the same props as Image plus a new prop called `sources`
 <ResponsiveImage
   sources={{
     // The values are anything that Image's source prop accepts
-    2: require('image!icon@2x.png),
+    2: require('image!icon@2x.png'),
     3: { uri: 'https://example.com/icon@3x.png' },
   }}
 />
