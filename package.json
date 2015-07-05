@@ -1,6 +1,6 @@
 {
   "name": "@exponent/react-native-responsive-image",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A responsive Image component that chooses the best-resolution image for the current screen",
   "main": "ResponsiveImage.js",
   "scripts": {
