@@ -1,0 +1,25 @@
+{
+  "name": "@exponent/react-native-responsive-image",
+  "version": "0.0.1",
+  "description": "A responsive Image component that chooses the best-resolution image for the current screen",
+  "main": "ResponsiveImage.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exponentjs/react-native-responsive-image.git"
+  },
+  "keywords": [
+    "react-native",
+    "responsive",
+    "image",
+    "pixel-ratio"
+  ],
+  "author": "Charlie Cheever <ccheever@exp.host>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/exponentjs/react-native-responsive-image/issues"
+  },
+  "homepage": "https://github.com/exponentjs/react-native-responsive-image#readme"
+}
