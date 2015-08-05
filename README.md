@@ -34,9 +34,9 @@ ResponsiveImage chooses the image source for the closest pixel ratio that is gre
 As an example, if you were to provide 2x and 3x sources as in the Usage example, these are the pixel ratios that ResponsiveImage will choose for various screens:
 
 Screen Scale  | Chosen Pixel Ratio
-------------- | ------------------
-1x            | 2x
-2x            | 2x
-2.5x          | 3x
-3x            | 3x
-4x            | 3x
+------------- | --------------------------
+1x            | 2x (use lowest available)
+2x            | 2x (exact match)
+2.5x          | 3x (round up to nearest)
+3x            | 3x (exact match)
+4x            | 3x (use highest available)
