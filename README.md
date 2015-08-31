@@ -1,4 +1,4 @@
-# ResponsiveImage
+# ResponsiveImage [![Slack](http://slack.exponentjs.com/badge.svg)](http://slack.exponentjs.com)
 A responsive Image component that chooses the best-resolution image for the current screen.
 
 ## Installation
