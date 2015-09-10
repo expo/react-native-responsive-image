@@ -49,6 +49,9 @@ class ResponsiveImage extends React.Component {
 
 ResponsiveImage.propTypes = {
   ...Image.propTypes,
+  source: PropTypes.shape({
+    uri: PropTypes.string,
+  }),
   sources: PropTypes.objectOf(Image.propTypes.source.isRequired),
 };
 
