@@ -52,7 +52,7 @@ ResponsiveImage.propTypes = {
   source: PropTypes.shape({
     uri: PropTypes.string,
   }),
-  sources: PropTypes.objectOf(Image.propTypes.source.isRequired),
+  sources: PropTypes.objectOf(Image.propTypes.source),
 };
 
 module.exports = ResponsiveImage;
