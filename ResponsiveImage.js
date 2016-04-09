@@ -1,13 +1,22 @@
 'use strict';
 
-let React = require('react-native');
-let {
- Image,
- PixelRatio,
- PropTypes,
-} = React;
+import React, {
+  PropTypes,
+} from 'react';
+import {
+  Image,
+  PixelRatio,
+} from 'react-native';
 
-class ResponsiveImage extends React.Component {
+export default class ResponsiveImage extends React.Component {
+
+  static propTypes = {
+    ...Image.propTypes,
+    source: PropTypes.shape({
+      uri: PropTypes.string,
+    }),
+    sources: PropTypes.objectOf(Image.propTypes.source),
+  };
 
   static getClosestHighQualitySource(sources) {
     let pixelRatios = Object.keys(sources);
@@ -29,12 +38,12 @@ class ResponsiveImage extends React.Component {
   }
 
   setNativeProps(nativeProps) {
-    this.refs.image.setNativeProps(nativeProps);
+    this._image.setNativeProps(nativeProps);
   }
 
   render() {
-    let { source } = this.props;
-    let optimalSource = ResponsiveImage.getClosestHighQualitySource(this.props.sources);
+    let { source, sources } = this.props;
+    let optimalSource = ResponsiveImage.getClosestHighQualitySource(sources);
     if (optimalSource) {
       source = optimalSource;
     }
@@ -42,16 +51,12 @@ class ResponsiveImage extends React.Component {
       throw new Error(`Couldn't find an appropriate image source`);
     }
 
-    return <Image {...this.props} ref="image" source={source} />;
+    return (
+      <Image
+        {...this.props}
+        ref={component => { this._image = component; }}
+        source={source}
+      />
+    );
   }
 }
-
-ResponsiveImage.propTypes = {
-  ...Image.propTypes,
-  source: PropTypes.shape({
-    uri: PropTypes.string,
-  }),
-  sources: PropTypes.objectOf(Image.propTypes.source),
-};
-
-module.exports = ResponsiveImage;
