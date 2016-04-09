@@ -7,10 +7,10 @@ A responsive Image component that chooses the best-resolution image for the curr
 npm install @exponent/react-native-responsive-image --save
 ```
 
-Require it with:
+Import it with:
 
 ```js
-let ResponsiveImage = require('@exponent/react-native-responsive-image');
+import ResponsiveImage from '@exponent/react-native-responsive-image';
 ```
 
 ## Usage
