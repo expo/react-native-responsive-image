@@ -16,9 +16,14 @@ export default class ResponsiveImage extends React.Component {
       uri: PropTypes.string,
     }),
     sources: PropTypes.objectOf(Image.propTypes.source),
+    preferredPixelRatio: PropTypes.number,
   };
 
-  static getClosestHighQualitySource(sources) {
+  static defaultProps = {
+    preferredPixelRatio: PixelRatio.get(),
+  };
+
+  static getClosestHighQualitySource(sources, preferredPixelRatio) {
     let pixelRatios = Object.keys(sources);
     if (!pixelRatios.length) {
       return null;
@@ -28,7 +33,7 @@ export default class ResponsiveImage extends React.Component {
       parseFloat(ratioA) - parseFloat(ratioB)
     );
     for (let ii = 0; ii < pixelRatios.length; ii++) {
-      if (pixelRatios[ii] >= PixelRatio.get()) {
+      if (pixelRatios[ii] >= preferredPixelRatio) {
         return sources[pixelRatios[ii]];
       }
     }
@@ -42,8 +47,8 @@ export default class ResponsiveImage extends React.Component {
   }
 
   render() {
-    let { source, sources } = this.props;
-    let optimalSource = ResponsiveImage.getClosestHighQualitySource(sources);
+    let { source, sources, preferredPixelRatio } = this.props;
+    let optimalSource = ResponsiveImage.getClosestHighQualitySource(sources, preferredPixelRatio);
     if (optimalSource) {
       source = optimalSource;
     }

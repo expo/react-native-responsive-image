@@ -24,6 +24,7 @@ ResponsiveImage accepts the same props as Image plus a new prop called `sources`
     2: require('image!icon@2x.png'),
     3: { uri: 'https://example.com/icon@3x.png' },
   }}
+  preferredPixelRatio={2} // (optional) force ResponsiveImage to load a specified pixel ratio
 />
 ```
 
