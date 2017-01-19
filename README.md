@@ -25,6 +25,9 @@ ResponsiveImage accepts the same props as Image plus a new prop called `sources`
     3: { uri: 'https://example.com/icon@3x.png' },
   }}
   preferredPixelRatio={2} // (optional) force ResponsiveImage to load a specified pixel ratio
+  renderImageElement={(props) => <FitImage {...props} />} // (optional) specify a custom function for rendering the image
+                      // For example from FitImage from react-native-fit-image
+                      // Renders with React Native's Image component if this prop isn't set
 />
 ```
 
