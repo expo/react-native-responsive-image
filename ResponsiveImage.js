@@ -17,7 +17,7 @@ export default class ResponsiveImage extends React.Component {
     }),
     sources: PropTypes.objectOf(Image.propTypes.source),
     preferredPixelRatio: PropTypes.number,
-    renderer: PropTypes.func
+    renderImageElement: PropTypes.func
   };
 
   static defaultProps = {
