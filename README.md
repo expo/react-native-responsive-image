@@ -1,10 +1,10 @@
-# ResponsiveImage [![Slack](http://slack.exponentjs.com/badge.svg)](http://slack.exponentjs.com)
+# ResponsiveImage
 A responsive Image component that chooses the best-resolution image for the current screen.
 
 ## Installation
 
 ```
-npm install @exponent/react-native-responsive-image --save
+yarn add @exponent/react-native-responsive-image
 ```
 
 Import it with:
@@ -24,10 +24,12 @@ ResponsiveImage accepts the same props as Image plus a new prop called `sources`
     2: require('image!icon@2x.png'),
     3: { uri: 'https://example.com/icon@3x.png' },
   }}
-  preferredPixelRatio={2} // (optional) force ResponsiveImage to load a specified pixel ratio
-  renderImageElement={(props) => <FitImage {...props} />} // (optional) specify a custom function for rendering the image
-                      // For example from FitImage from react-native-fit-image
-                      // Renders with React Native's Image component if this prop isn't set
+  // (optional) force ResponsiveImage to load a specified pixel ratio
+  preferredPixelRatio={2}
+  // (optional) specify a custom function for rendering the image. You control
+  // the props that are passed to the custom component. By default, React
+  // Native's Image component is rendered.
+  renderImageElement={(props) => <CustomImage {...props} />}
 />
 ```
 
