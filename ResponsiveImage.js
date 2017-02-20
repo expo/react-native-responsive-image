@@ -17,6 +17,7 @@ export default class ResponsiveImage extends React.Component {
     }),
     sources: PropTypes.objectOf(Image.propTypes.source),
     preferredPixelRatio: PropTypes.number,
+    renderImageElement: PropTypes.func
   };
 
   static defaultProps = {
@@ -47,13 +48,20 @@ export default class ResponsiveImage extends React.Component {
   }
 
   render() {
-    let { source, sources, preferredPixelRatio } = this.props;
+    let { source, sources, preferredPixelRatio, renderImageElement } = this.props;
     let optimalSource = ResponsiveImage.getClosestHighQualitySource(sources, preferredPixelRatio);
     if (optimalSource) {
       source = optimalSource;
     }
     if (!source) {
       throw new Error(`Couldn't find an appropriate image source`);
+    }
+    if (renderImageElement) {
+      return renderImageElement({
+        ...this.props,
+        ref: (component) => { this._image = component; },
+        source: source
+      });
     }
 
     return (
