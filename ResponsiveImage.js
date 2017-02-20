@@ -3,6 +3,7 @@
 import React, {
   PropTypes,
 } from 'react';
+import cloneReferencedElement from 'react-clone-referenced-element';
 import {
   Image,
   PixelRatio,
@@ -48,8 +49,17 @@ export default class ResponsiveImage extends React.Component {
   }
 
   render() {
-    let { source, sources, preferredPixelRatio, renderImageElement } = this.props;
-    let optimalSource = ResponsiveImage.getClosestHighQualitySource(sources, preferredPixelRatio);
+    let {
+      source,
+      sources,
+      preferredPixelRatio,
+      renderImageElement,
+      ...props
+    } = this.props;
+    let optimalSource = ResponsiveImage.getClosestHighQualitySource(
+      sources,
+      preferredPixelRatio,
+    );
     if (optimalSource) {
       source = optimalSource;
     }
@@ -57,16 +67,15 @@ export default class ResponsiveImage extends React.Component {
       throw new Error(`Couldn't find an appropriate image source`);
     }
     if (renderImageElement) {
-      return renderImageElement({
-        ...this.props,
-        ref: (component) => { this._image = component; },
-        source,
+      let image = renderImageElement({ ...props, source });
+      return cloneReferencedElement(image, {
+        ref: component => { this._image = component; },
       });
     }
 
     return (
       <Image
-        {...this.props}
+        {...props}
         ref={component => { this._image = component; }}
         source={source}
       />

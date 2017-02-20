@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/exponentjs/react-native-responsive-image.git"
+    "url": "git+https://github.com/exponent/react-native-responsive-image.git"
   },
   "keywords": [
     "react-native",
@@ -19,7 +19,10 @@
   "author": "Charlie Cheever <ccheever@exp.host>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/exponentjs/react-native-responsive-image/issues"
+    "url": "https://github.com/exponent/react-native-responsive-image/issues"
   },
-  "homepage": "https://github.com/exponentjs/react-native-responsive-image#readme"
+  "homepage": "https://github.com/exponent/react-native-responsive-image#readme",
+  "dependencies": {
+    "react-clone-referenced-element": "^1.0.1"
+  }
 }
