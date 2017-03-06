@@ -4,13 +4,13 @@ A responsive Image component that chooses the best-resolution image for the curr
 ## Installation
 
 ```
-yarn add @exponent/react-native-responsive-image
+yarn add @expo/react-native-responsive-image
 ```
 
 Import it with:
 
 ```js
-import ResponsiveImage from '@exponent/react-native-responsive-image';
+import ResponsiveImage from '@expo/react-native-responsive-image';
 ```
 
 ## Usage
